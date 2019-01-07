@@ -1,0 +1,64 @@
+---
+title: "MyShinyApp"
+author: "Smoore"
+date: "January 6, 2019"
+output:  
+  revealjs::revealjs_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+- This was built as part of a deliverable for the course Developing Data Products as part of the Coursera Data Science Specialization.
+
+- The app developed for the first part of the assignment demo is avalilable at:  https://smoore.shinyapps.io/MyShinyAppandRepPitch/  
+
+- Source code for ui.R and server.R files are available on the GitHub repo:  https://github.com/shawn0615/Shiny-Application-and-Reproducible-Pitch  
+
+## Web Application functionality
+
+- Enter trip distance and current price per gasoline to calculate total cost of gasoline used for each car.
+
+- Enter budgeted cost for gasoline.
+
+- Results displayed will show the car with Miles per Gallon(MPG) that are within your budget.
+
+- Select desired car characteristic in term of : Cylinders and Transmission.
+
+- Results displayed are selected cars that meet your criteria from main content with using the mtcars dataset from [R].
+
+## Summary of mtcars datset
+
+```{r mtcars, echo = TRUE}
+summary(mtcars)
+```
+
+## Weight vs Mileage
+
+
+```{r package, warning=FALSE, message=FALSE}
+library("png")
+library(plotly)
+library(datasets)
+# Get the input values.
+input <- mtcars[,c('wt','mpg')]
+
+# Plot the chart for cars with weight between 2.5 to 5 and mileage between 15 and 30.
+plot_ly(x = input$wt,y = input$mpg,
+   xlab = "Weight",
+   ylab = "Milage",
+   xlim = c(2.5,5),
+   ylim = c(15,30),		 
+   title = "Weight vs Mileage"
+)
+
+
+```
+
+
+
+

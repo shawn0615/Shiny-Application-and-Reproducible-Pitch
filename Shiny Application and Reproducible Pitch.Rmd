@@ -1,0 +1,52 @@
+---
+title: "Course Project: Shiny Application and Reproducible Pitch"
+author: "Smoore"
+date: "1/6/2019"
+output: revealjs::revealjs_presentation
+---
+
+## Introduction
+
+- This was built as part of a deliverable for the course Developing Data Products as part of the Coursera Data Science Specialization.
+
+- The app developed for the first part of the assignment demo is avalilable at:
+
+- Source code for ui.R and server.R files are available on the GitHub repo:
+
+## Web Application functionality
+
+- Enter trip distance and price per gasoline to calculate total cost of gasoline used for each car.
+
+- Enter budgeted cost for gasoline.
+
+- Results displayed will show the car with Miles per Gallon(MPG) that fit your budget.
+
+- Select desired car characteristic in term of : Cylinders, Displacement, Horse Power and Transmission.
+
+- Results displayed are selected cars that meet your criteria from main content with using the mtcars dataset from [R].
+
+## Illiteracy Rates vs Income by State
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, echo = FALSE, 
+                      message = FALSE, warning = FALSE)
+```
+
+
+```{r prerequisites}
+rm(list=ls())
+library(plotly)
+```
+
+
+```{r package, warning=FALSE, message=FALSE}
+
+state_stats <- data.frame(State = state.abb, Income = as.vector(state.x77[,5]), Illiteracy= as.vector(state.x77[,3]), Pop=as.vector(state.x77[,1]), Grad=as.vector(state.x77[,6]), Region=state.name)
+
+plot_ly(state_stats, x = ~ Income , y = ~ Illiteracy,  color=~Region, size=~Pop, type = "scatter")
+
+
+```
+
